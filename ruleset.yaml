@@ -183,3 +183,17 @@
             }, 1000);
           })
         </script>
+- domain: tagesspiegel.de
+  regexRules:
+      - match: <script .*</script>
+        replace: ""
+      - match: <link .* as="script">
+        replace: ""
+      - match: <link .*.js">
+        replace: ""
+      #- match: srcset=".*" # remove to display the main image
+      #  replace: ""
+  headers: 
+    user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+    content-security-policy: "script-src 'self';"
+  
